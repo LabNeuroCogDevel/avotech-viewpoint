@@ -1,5 +1,13 @@
 Using Avotec's camera with Arrington's ViewPoint software.
 
+## Real time monitor
+Unimplemented: using 
+[gnuplot](http://tmacchant33.starfree.jp/gnuplot_files/gp550-20220907-win64-mingw.zip) + [perl](https://strawberryperl.com/releases.html) to watch realtime x position with per trial event median fixation.
+
+![real time eye demo](images/realtime-eye-xpos_demo.gif)
+
+See [dotplot.pl](src/dotplot.pl) and [dot.gnuplot](src/dot.gnuplot). Expects messages and fixations from [lncdtask.eyecal](https://github.com/LabNeuroCogDevel/lncdtask)
+
 ## Notes
   * [2022-09-07: 32 vs 64 channel coil](pdf/2022-09-07_32v64.pdf)
 

@@ -1,6 +1,7 @@
 #+TITLE: Arrington/Avotech @ MRRC Prisma 2
 #+DATE: 2022-09-07
 #+PROPERTY: header-args  :cache yes
+#+PROPERTY: header-args:R  :session *R*
 #+LATEX_HEADER: \RequirePackage{fancyvrb}
 #+LATEX_HEADER: \setminted{fontsize=\scriptsize}
 #+begin_src emacs-lisp :exports results :results silent :eval yes
@@ -15,10 +16,10 @@
 #+end_src
 
 #+begin_src R :session :exports none :results none
-library(ggplot)
+library(ggplot2)
 pdir <- getwd()
 # https://github.com/LabNeuroCogDevel/autoeyescore
-setwd("/mnt/hdd/home/foranw/src/work/autoeyescore")
+setwd("/Volumes/Hera/Projects/autoeyescore")
 source("score_arrington.R")
 setwd(pdir)
 #+end_src
@@ -137,8 +138,13 @@ print(raw_plot)
 Surprisingly, even the noisy 32 channel coil's median fixation can correctly identify at least the side of the dot during fixation.
 
 #+begin_src R :session :file images/notes/arrington_et_medians.png :results graphics file
+sd_vals <- d_all %>%
+  group_by(fname,trial, pos) %>%
+  summarise(se=sd(X_CorrectedGaze)/sqrt(n()))
+
 med_vals <- d_median %>%
   spread(event,x_median) %>%
+  inner_join(sd_vals) %>%
   mutate(dist=iti-dot) %>%
   rbind(data.frame(
       fname='ideal', pos=c(-.9,.9),
@@ -149,9 +155,11 @@ med_vals <- d_median %>%
            grepl('ideal',fname)~ 'ideal',
            TRUE ~ 'oops'))
 
-ggplot(med_vals) +
+p_med_ideal <- ggplot(med_vals) +
   aes(x=pos, y=dist, color=fname, linetype=type) +
   geom_hline(yintercept=0, alpha=.5) +
+  geom_errorbar(aes(ymin=dist-se, ymax=dist+se, linetype=NULL),
+                width=.025, alpha=.5) +
   geom_point() +
   geom_line(aes(group=fname)) +
   scale_linetype_manual(values=c(5,3,1)) +
@@ -161,10 +169,67 @@ ggplot(med_vals) +
        linetype="head coil",
        color="data from",
        title="horz gaze side discrimination")
+print(p_med_ideal)
 #+end_src
 
-#+RESULTS:
+#+RESULTS[52a4fe24e9229bdf79b082ed88b9dedcf0b748a9]:
 [[file:images/notes/arrington_et_medians.png]]
+
+#+begin_src R :results graphics file :file images/notes/norm_dot_xpos_dist.png :width 800
+med_all <- d_all %>% inner_join(med_vals) %>%
+ mutate(x_norm = iti - X_CorrectedGaze,
+        side=ifelse(pos<0, 'left', 'right'),
+        loc=abs(pos))
+
+
+p_distside <- med_all %>%
+  filter(event=='dot') %>%
+ ggplot() +
+ aes(x=x_norm, fill=fname) +
+ cowplot::theme_cowplot() +
+ geom_density(alpha=.4)+
+  facet_grid(side~loc) +
+  geom_vline(xintercept=0) +
+  labs(x="median iti - x pos",
+      title="distirubtion of x gaze during dot",
+      fill="data from")
+
+p_distfname <- med_all %>%
+  filter(event=='dot') %>%
+ ggplot() +
+ aes(x=x_norm, fill=as.factor(pos)) +
+ cowplot::theme_cowplot() +
+  geom_density(alpha=.4)+
+  facet_grid(~fname) +
+  geom_vline(xintercept=0) +
+  labs(x="median iti - x pos",
+      title="",
+      fill="stim position")
+
+cowplot::plot_grid(p_distside, p_distfname, nrow=2)
+#+end_src
+
+#+RESULTS[908a4c7c269c701a6ae042b97b743f1981f3b7c4]:
+[[file:images/notes/norm_dot_xpos_dist.png]]
+
+
+#+begin_src R :results graphics file :file images/notes/pos_ideal_boxplot.png :width 800
+p_med_boxplot <- med_all %>% filter(event=='dot') %>%
+ ggplot() +
+ aes(x=as.factor(pos), y=x_norm, fill=fname) +
+ geom_boxplot() +
+ cowplot::theme_cowplot() +
+ labs(y="median iti - x pos", x="ideal pos",
+      title="") + facet_wrap(~fname)
+print(p_med_boxplot)  
+#cowplot::plot_grid(
+#  p_med_boxplot +theme(legend.position="none") +labs(x=""),
+#  p_med_ideal +theme(legend.position="none"),
+#  nrow=2, rel_heights=c(2,1))
+#+end_src
+
+#+RESULTS[56f60844ffbcf0fc9c6b9c5f71458da51cbdc9bd]:
+[[file:images/notes/pos_ideal_boxplot.png]]
 
 ** Noise
 #+begin_src R :session :results graphics file :file images/notes/arrington_boxplot.png :width 800

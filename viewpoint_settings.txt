@@ -1,0 +1,25 @@
+// shape default: Rectangle
+pupilScanShape Ellipse
+//
+//density: 1-20, gui min is 2
+pupilScanDensity 1
+//
+// visualize what the ET algo is doing. might slow down things
+showThresholdDots Yes
+//
+// save what the eyes were like during calibration
+SaveCalibrationEyeImages Yes
+//
+// make dots go faster. mannual says default is 80. but thats still faster
+calibration_StimulusDuration	30
+// >>> calibration_StimulusDuration <N>   tunnel motion every N milliseconds, Defaults: Win98:15,  Win2000:80 
+//
+calibration_WarningTime	20
+// >>> calibration_WarningTime <N>   In units of calibrationSpeed, Default: 20 
+//
+calibration_ISI	2
+// >>> calibration_ISI <N>   In units of calibrationSpeed, Default: 6 
+//
+// only 9 points. we could go to 6?
+calibration_Points 9
+END	

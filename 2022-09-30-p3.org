@@ -1,0 +1,62 @@
+#+title: Prisma3 eye tracking
+#+date: 2022-09-30
+#+PROPERTY: header-args:R :session *R*
+
+* 
+
+#+begin_src R :colnames yes
+source("./plot_files.R")
+library(cowplot)
+theme_set(theme_cowplot())
+rnfn <- function(f) gsub('.*/sub-dan.*run-([12]).*', 'Prisma3-\\1', f) %>% gsub('.*WF.*','Prisma2',.)
+infiles <- c(Sys.glob('eye/*dan*txt'), 'eye/sub-WF_tape_run2_32_ses-01_task-EC_run-1.txt')
+med_all <- load_files(infiles, fn_fname=rnfn) %>% fix_norm_from_list
+med_dot <- med_all %>% filter(event=='dot')
+
+med_dot %>% group_by(fname) %>% summarise(n_dotpos = length(unique(dot)), n_total=n())
+#+end_src
+
+#+RESULTS:
+| fname     | n_dotpos | n_total |
+|-----------+----------+---------|
+| Prisma2   |       19 |    1708 |
+| Prisma3-1 |       10 |     301 |
+| Prisma3-2 |       40 |    1199 |
+
+#+begin_src R 
+
+
+#+end_src
+
+#+begin_src R :results graphics file :file images/P3vP3-raw.png
+med_dot <- med_dot %>% filter(grepl('2',fname), event=='dot') %>%
+  group_by(fname, trial) %>% mutate(t=t-min(t))
+med_dot %>%
+  filter(pos %in%
+         c(-0.9, -.83,-.82, -.74,-.75, -.43,-.42,-.2,-.24,
+           .9,   .83, .82,  .74,.75, .43,   .42,  .2)) %>%
+  ggplot() +
+   aes(x=t, y=X_CorrectedGaze, color=fname) +
+   #geom_line(aes(group=paste(fname,trial)), alpha=.4) +
+   geom_point(size=.5) +
+   facet_wrap(.~pos) +
+   lims(x=c(0, .6)) +
+   labs(title = "Prisma2 (w/extensive calibration) vs Prisma3 (w/quick cal)", y ="X Gaze", color="from")
+#+end_src
+
+#+RESULTS:
+[[file:images/P3vP3-raw.png]]
+
+#+begin_src R :results graphics file :file images/P3vP3dist.png
+dot_1s <- med_dot %>% filter(t>=.3, t<=.5) %>% mutate(xnorm=X_CorrectedGaze - dot)
+p <- ggplot(dot_1s) + aes(x=xnorm) + geom_density(alpha=.5) + lims(x=c(-.25, .25))
+p + aes(fill=fname) +
+  labs(title="dist relative to median fixation during dot (.3-.5s)",
+       fill="from",
+       x="x gaze - median fixation (dot presentation)")
+#+end_src
+
+#+RESULTS:
+[[file:images/P3vP3dist.png]]
+
+

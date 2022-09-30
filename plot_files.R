@@ -15,6 +15,7 @@ tracking_list <- lapply(eyetxts, \(f) read_arr(f) %>%
         mutate(event=ifelse(is.na(event), 'iti',event),
                trial=as.numeric(trial),
                pos=round(as.numeric(pos),2),
+               Count=as.numeric(Count),
                # include where data comes from
                fname=fn_fname(f)) %>%
         fill(trial, pos, .direction="up") %>%

@@ -2,7 +2,32 @@
 #+date: 2022-09-30
 #+PROPERTY: header-args:R :session *R*
 
-* 
+* P3 camera has better contrast
+
+The illuminator seems to more focused/less diffuse in P3.
+It's very dark on the oustides of the illuminated circle,
+but the contrast within is higher than on P2. This is visible in the calibration image.
+
+file:images/cal_p2vsP3.png
+(P3 runs older software and doesn't draw pupil detection. montage is manually constructed)
+
+Arrington pupil detection is noticibly more stable.
+file:images/P1_pupil_win.png
+
+
+A video of the tracking on P3 does a better job showing how stable pupil detection is: https://photos.app.goo.gl/XwoyX9CgWCVfLDj2A.
+
+* X position comparison
+
+This is the best Prisma2 calibration obtained after a lot of tweaking (contrast, brightness, threshold, many points re-calibrated, & w/ fresh eyes) compared to
+prisma3 on the first go on someone who was already pretty fatigued.
+
+I didn't touch any of the adjustments -- P3 pupil detection just worked with the loaded settings!
+
+
+Despite the low effort, P3 traces have much less noise. (tighter distribution of repored x gaze around fixation points)
+
+** P2 and P3 data
 
 #+begin_src R :colnames yes
 source("./plot_files.R")
@@ -23,10 +48,9 @@ med_dot %>% group_by(fname) %>% summarise(n_dotpos = length(unique(dot)), n_tota
 | Prisma3-1 |       10 |     301 |
 | Prisma3-2 |       40 |    1199 |
 
-#+begin_src R 
+** Raw traces
 
-
-#+end_src
+Good tracking on P2 is still has much less precision/consistency than P3.
 
 #+begin_src R :results graphics file :file images/P3vP3-raw.png
 med_dot <- med_dot %>% filter(grepl('2',fname), event=='dot') %>%
@@ -47,6 +71,8 @@ med_dot %>%
 #+RESULTS:
 [[file:images/P3vP3-raw.png]]
 
+** distribution
+tighter (narrow distribution) for P3. Much less noise.
 #+begin_src R :results graphics file :file images/P3vP3dist.png
 dot_1s <- med_dot %>% filter(t>=.3, t<=.5) %>% mutate(xnorm=X_CorrectedGaze - dot)
 p <- ggplot(dot_1s) + aes(x=xnorm) + geom_density(alpha=.5) + lims(x=c(-.25, .25))

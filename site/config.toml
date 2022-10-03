@@ -1,4 +1,4 @@
-baseURL = '/'
+baseURL = 'https://labneurocogdevel.github.io/avotech-viewpoint/'
 languageCode = 'en-us'
 title = ' Eyetracking: Avotec Camera w/Arrington Viewpoint'
 #theme = "learn" # need to tweak logo

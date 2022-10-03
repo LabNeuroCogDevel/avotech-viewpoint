@@ -1,0 +1,23 @@
+baseURL = '/'
+languageCode = 'en-us'
+title = ' Eyetracking: Avotec Camera w/Arrington Viewpoint'
+#theme = "learn" # need to tweak logo
+#theme = "doks" # npm issues?
+#theme = "hugo-book" # no sidebar, go to /posts/
+#theme = "docsy" # no sidebar
+theme = "techdoc" # menu_style open-menu
+menu = "main"
+[params]
+    menu_style = "open-menu"
+    mainSections = ["docs"]
+
+[module]
+    [[module.mounts]]
+        source = "../images/"
+        target = "static/posts/images"
+    [[module.mounts]]
+        source = "../doc/"
+        target = "content/docs"
+   [[module.mounts]]
+   source = "../readme.md"
+   target = "content/_index.md"

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Dark background calibration and ellipse pupil detection -  Eyetracking: Avotec Camera w/Arrington Viewpoint</title>
+<meta name="generator" content="Hugo 0.103.0" />
+<link href="//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="/docs/2022-09-22_ellipse/">
+<link rel="stylesheet" href="/css/theme.min.css">
+<link rel="stylesheet" href="/css/chroma.min.css">
+<script defer src="//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:title" content="Dark background calibration and ellipse pupil detection" />
+<meta property="og:description" content="#sources &#34;/Volumes/Hera/Projects/autoeyescore/score_arrington.R&#34; w/correct directory # provides plot_run library(dplyr) ocwd &lt;- getwd() setwd(&#34;/Volumes/Hera/Projects/autoeyescore/&#34;) source(&#39;score_arrington.R&#39;) setwd(ocwd) source(&#34;/Volumes/Hera/Projects/Habit/mr/dollarreward/eye_score.R&#34;) run1 &lt;- &#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11884_20220920/sub-11884_ses-01_task-DR_run-1.txt&#34; plot_run1 &lt;- plot_run(run1) plot_run2 &lt;- plot_run(gsub(&#39;run-1&#39;,&#39;run-2&#39;,run1)) plot_bad &lt;- plot_run(&#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11878_20220823/sub-11878_ses-01_task-DR_run-1&#34;) plot_before_ellipse &lt;- plot_run(&#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11883_20220913/sub-11883_ses-01_task-DR_run-1.txt&#34;) Poor tracking for vist visit Coil too close to pupil (shadow?). pupil detection was very jump: no lock
+print(plot_bad) After changes applied file:./viewpoint_settings.txt with Load Settings
+print(plot_run1) Tracking before viewpoint mods On 2022-09-13. before dark background and w/o viewpoint ellipse nor cal save." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/2022-09-22_ellipse/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-09-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-20T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Dark background calibration and ellipse pupil detection"/>
+<meta name="twitter:description" content="#sources &#34;/Volumes/Hera/Projects/autoeyescore/score_arrington.R&#34; w/correct directory # provides plot_run library(dplyr) ocwd &lt;- getwd() setwd(&#34;/Volumes/Hera/Projects/autoeyescore/&#34;) source(&#39;score_arrington.R&#39;) setwd(ocwd) source(&#34;/Volumes/Hera/Projects/Habit/mr/dollarreward/eye_score.R&#34;) run1 &lt;- &#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11884_20220920/sub-11884_ses-01_task-DR_run-1.txt&#34; plot_run1 &lt;- plot_run(run1) plot_run2 &lt;- plot_run(gsub(&#39;run-1&#39;,&#39;run-2&#39;,run1)) plot_bad &lt;- plot_run(&#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11878_20220823/sub-11878_ses-01_task-DR_run-1&#34;) plot_before_ellipse &lt;- plot_run(&#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11883_20220913/sub-11883_ses-01_task-DR_run-1.txt&#34;) Poor tracking for vist visit Coil too close to pupil (shadow?). pupil detection was very jump: no lock
+print(plot_bad) After changes applied file:./viewpoint_settings.txt with Load Settings
+print(plot_run1) Tracking before viewpoint mods On 2022-09-13. before dark background and w/o viewpoint ellipse nor cal save."/>
+<meta itemprop="name" content="Dark background calibration and ellipse pupil detection">
+<meta itemprop="description" content="#sources &#34;/Volumes/Hera/Projects/autoeyescore/score_arrington.R&#34; w/correct directory # provides plot_run library(dplyr) ocwd &lt;- getwd() setwd(&#34;/Volumes/Hera/Projects/autoeyescore/&#34;) source(&#39;score_arrington.R&#39;) setwd(ocwd) source(&#34;/Volumes/Hera/Projects/Habit/mr/dollarreward/eye_score.R&#34;) run1 &lt;- &#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11884_20220920/sub-11884_ses-01_task-DR_run-1.txt&#34; plot_run1 &lt;- plot_run(run1) plot_run2 &lt;- plot_run(gsub(&#39;run-1&#39;,&#39;run-2&#39;,run1)) plot_bad &lt;- plot_run(&#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11878_20220823/sub-11878_ses-01_task-DR_run-1&#34;) plot_before_ellipse &lt;- plot_run(&#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11883_20220913/sub-11883_ses-01_task-DR_run-1.txt&#34;) Poor tracking for vist visit Coil too close to pupil (shadow?). pupil detection was very jump: no lock
+print(plot_bad) After changes applied file:./viewpoint_settings.txt with Load Settings
+print(plot_run1) Tracking before viewpoint mods On 2022-09-13. before dark background and w/o viewpoint ellipse nor cal save."><meta itemprop="datePublished" content="2022-09-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-09-20T00:00:00+00:00" />
+<meta itemprop="wordCount" content="76">
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1> Eyetracking: Avotec Camera w/Arrington Viewpoint</h1>
+</header>
+
+
+<div class="content-container">
+<main><h1>Dark background calibration and ellipse pupil detection</h1>
+
+<div class="src src-r">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">#sources &#34;/Volumes/Hera/Projects/autoeyescore/score_arrington.R&#34; w/correct directory</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># provides plot_run</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(dplyr)
+</span></span><span style="display:flex;"><span>ocwd <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">getwd</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">setwd</span>(<span style="color:#e6db74">&#34;/Volumes/Hera/Projects/autoeyescore/&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">source</span>(<span style="color:#e6db74">&#39;score_arrington.R&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">setwd</span>(ocwd)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">source</span>(<span style="color:#e6db74">&#34;/Volumes/Hera/Projects/Habit/mr/dollarreward/eye_score.R&#34;</span>)</span></span></code></pre></div>
+</div>
+<div class="src src-r">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>run1 <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11884_20220920/sub-11884_ses-01_task-DR_run-1.txt&#34;</span>
+</span></span><span style="display:flex;"><span>plot_run1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">plot_run</span>(run1)
+</span></span><span style="display:flex;"><span>plot_run2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">plot_run</span>(<span style="color:#a6e22e">gsub</span>(<span style="color:#e6db74">&#39;run-1&#39;</span>,<span style="color:#e6db74">&#39;run-2&#39;</span>,run1))
+</span></span><span style="display:flex;"><span>plot_bad <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">plot_run</span>(<span style="color:#e6db74">&#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11878_20220823/sub-11878_ses-01_task-DR_run-1&#34;</span>)
+</span></span><span style="display:flex;"><span>plot_before_ellipse <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">plot_run</span>(<span style="color:#e6db74">&#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11883_20220913/sub-11883_ses-01_task-DR_run-1.txt&#34;</span>)</span></span></code></pre></div>
+</div>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Poor tracking for vist visit
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>Coil too close to pupil (shadow?). pupil detection was very jump: no lock</p>
+<div class="src src-r">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(plot_bad)</span></span></code></pre></div>
+</div>
+<p><img src="../images/dr_11878_1_bad.png" alt="../images/dr_11878_1_bad.png" title="../images/dr_11878_1_bad.png" /></p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+After changes
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>applied file:./viewpoint_settings.txt with <code>Load Settings</code></p>
+<div class="src src-r">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(plot_run1)</span></span></code></pre></div>
+</div>
+<p><img src="../images/dr_11884_1.png" alt="../images/dr_11884_1.png" title="../images/dr_11884_1.png" /></p>
+<p>
+<img src="../images/11884_20220920_EyeACalibrationImage.png" alt="../images/11884_20220920_EyeACalibrationImage.png" title="../images/11884_20220920_EyeACalibrationImage.png" /></p>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Tracking before viewpoint mods
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>
+On 2022-09-13. before dark background and w/o viewpoint ellipse nor cal save.
+Decent tracking</p>
+<div class="src src-r">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(plot_before_ellipse)</span></span></code></pre></div>
+</div>
+<p><img src="../images/dr_11883_1_okay.png" alt="../images/dr_11883_1_okay.png" title="../images/dr_11883_1_okay.png" /></p>
+</div>
+</div>
+<div class="edit-meta">
+Last updated on 20 Sep 2022
+
+
+<br>
+Published on 20 Sep 2022
+<br></div><nav class="pagination"><a class="nav nav-prev" href="/docs/2022-09-30-p3/" title="Prisma3 eye tracking"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Prisma3 eye tracking</a>
+<a class="nav nav-next" href="/docs/2022-09-15_tape32/" title="32 Channel Tape">Next - 32 Channel Tape <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="/">Home</a></li>
+
+<li class="parent"><a href="/docs/">Docs</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="/docs/2022-09-30-p3/">Prisma3 eye tracking</a></li>
+<li class="active"><a href="/docs/2022-09-22_ellipse/">Dark background calibration and ellipse pupil detection</a></li>
+<li class=""><a href="/docs/2022-09-15_tape32/">32 Channel Tape</a></li>
+<li class=""><a href="/docs/2022-09-07_32v64/">Arrington/Avotech @ MRRC Prisma 2</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

@@ -4,6 +4,7 @@
 
 * P3 camera has better contrast
 
+** Contrast comparison
 
 The illuminator is more focused/less diffuse in P3.
 Compared to P2, P3's camera image is darker on the outsides of the illuminated circle,
@@ -15,10 +16,19 @@ but the contrast within is higher. This is visible in the camera image montage c
 
 Arrington pupil detection is noticibly more stable.
 
+** P3 Detection
 
 [[file:../images/P1_pupil_win.png]]
 
 A video of the tracking on P3 does a better job showing how stable pupil detection is: https://photos.app.goo.gl/XwoyX9CgWCVfLDj2A.
+
+
+** Other systems
+
+A 2018 write up from a site with a similiar setup also has dark edges
+https://technicalfmri.blogspot.com/2018/07/eye-tracking-with-arrington.html
+
+[[file:../images/technicalfmri_2018.png]]
 
 * XGaze position comparison
 

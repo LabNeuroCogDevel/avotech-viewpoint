@@ -7,6 +7,7 @@ title = ' Eyetracking: Avotec Camera w/Arrington Viewpoint'
 #theme = "docsy" # no sidebar
 theme = "techdoc" # menu_style open-menu
 menu = "main"
+#canonifyurls = true
 [params]
     menu_style = "open-menu"
     mainSections = ["docs"]
@@ -14,10 +15,10 @@ menu = "main"
 [module]
     [[module.mounts]]
         source = "../images/"
-        target = "static/posts/images"
+        target = "static/docs/images"
     [[module.mounts]]
         source = "../doc/"
         target = "content/docs"
-   [[module.mounts]]
-   source = "../readme.md"
-   target = "content/_index.md"
+    [[module.mounts]]
+        source = "../readme.md"
+        target = "content/_index.md"

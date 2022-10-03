@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title> Eyetracking: Avotec Camera w/Arrington Viewpoint</title>
-    <link>/</link>
+    <link>https://labneurocogdevel.github.io/avotech-viewpoint/</link>
     <description>Recent content on  Eyetracking: Avotec Camera w/Arrington Viewpoint</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://labneurocogdevel.github.io/avotech-viewpoint/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Prisma3 eye tracking</title>
-      <link>/docs/2022-09-30-p3/</link>
+      <link>https://labneurocogdevel.github.io/avotech-viewpoint/docs/2022-09-30-p3/</link>
       <pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>/docs/2022-09-30-p3/</guid>
+      <guid>https://labneurocogdevel.github.io/avotech-viewpoint/docs/2022-09-30-p3/</guid>
       <description>P3 camera has better contrast The illuminator is more focused/less diffuse in P3. Compared to P2, P3&amp;#39;s camera image is darker on the outsides of the illuminated circle, but the contrast within is higher. This is visible in the camera image montage captured during calibration:
 (P3 runs older software and doesn&amp;#39;t draw pupil detection. montage is manually constructed)
 Arrington pupil detection is noticibly more stable.
@@ -21,10 +21,10 @@ A video of the tracking on P3 does a better job showing how stable pupil detecti
     
     <item>
       <title>Dark background calibration and ellipse pupil detection</title>
-      <link>/docs/2022-09-22_ellipse/</link>
+      <link>https://labneurocogdevel.github.io/avotech-viewpoint/docs/2022-09-22_ellipse/</link>
       <pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>/docs/2022-09-22_ellipse/</guid>
+      <guid>https://labneurocogdevel.github.io/avotech-viewpoint/docs/2022-09-22_ellipse/</guid>
       <description>#sources &amp;#34;/Volumes/Hera/Projects/autoeyescore/score_arrington.R&amp;#34; w/correct directory # provides plot_run library(dplyr) ocwd &amp;lt;- getwd() setwd(&amp;#34;/Volumes/Hera/Projects/autoeyescore/&amp;#34;) source(&amp;#39;score_arrington.R&amp;#39;) setwd(ocwd) source(&amp;#34;/Volumes/Hera/Projects/Habit/mr/dollarreward/eye_score.R&amp;#34;) run1 &amp;lt;- &amp;#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11884_20220920/sub-11884_ses-01_task-DR_run-1.txt&amp;#34; plot_run1 &amp;lt;- plot_run(run1) plot_run2 &amp;lt;- plot_run(gsub(&amp;#39;run-1&amp;#39;,&amp;#39;run-2&amp;#39;,run1)) plot_bad &amp;lt;- plot_run(&amp;#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11878_20220823/sub-11878_ses-01_task-DR_run-1&amp;#34;) plot_before_ellipse &amp;lt;- plot_run(&amp;#34;/Volumes/L/bea_res/Data/Tasks/DollarReward2/MR/11883_20220913/sub-11883_ses-01_task-DR_run-1.txt&amp;#34;) Poor tracking for vist visit Coil too close to pupil (shadow?). pupil detection was very jump: no lock
 print(plot_bad) After changes applied file:./viewpoint_settings.txt with Load Settings
 print(plot_run1) Tracking before viewpoint mods On 2022-09-13. before dark background and w/o viewpoint ellipse nor cal save.</description>
@@ -32,10 +32,10 @@ print(plot_run1) Tracking before viewpoint mods On 2022-09-13. before dark backg
     
     <item>
       <title>32 Channel Tape</title>
-      <link>/docs/2022-09-15_tape32/</link>
+      <link>https://labneurocogdevel.github.io/avotech-viewpoint/docs/2022-09-15_tape32/</link>
       <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>/docs/2022-09-15_tape32/</guid>
+      <guid>https://labneurocogdevel.github.io/avotech-viewpoint/docs/2022-09-15_tape32/</guid>
       <description>;used minted package and python-pygments (require &amp;#39;ox-latex) (add-to-list &amp;#39;org-latex-packages-alist &amp;#39;(&amp;#34;&amp;#34; &amp;#34;minted&amp;#34;)) (setq org-latex-listings &amp;#39;minted) (setq org-latex-pdf-process &amp;#39;(&amp;#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&amp;#34; &amp;#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&amp;#34; &amp;#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&amp;#34;))
 #+end_src
 Raw surprisingly clear raw X position traces
@@ -45,10 +45,10 @@ Tape vs no Tape The difference between tape and no tape is not sigificant</descr
     
     <item>
       <title>Arrington/Avotech @ MRRC Prisma 2</title>
-      <link>/docs/2022-09-07_32v64/</link>
+      <link>https://labneurocogdevel.github.io/avotech-viewpoint/docs/2022-09-07_32v64/</link>
       <pubDate>Wed, 07 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>/docs/2022-09-07_32v64/</guid>
+      <guid>https://labneurocogdevel.github.io/avotech-viewpoint/docs/2022-09-07_32v64/</guid>
       <description>;used minted package and python-pygments (require &amp;#39;ox-latex) (add-to-list &amp;#39;org-latex-packages-alist &amp;#39;(&amp;#34;&amp;#34; &amp;#34;minted&amp;#34;)) (setq org-latex-listings &amp;#39;minted) (setq org-latex-pdf-process &amp;#39;(&amp;#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&amp;#34; &amp;#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&amp;#34; &amp;#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&amp;#34;))
 #+end_src
 Testing with eye calibration tasks We ran an eye calibration task first with the 32 channel head coil (once). Then with the 64 (three times).
